@@ -1,3 +1,5 @@
+![Tampilan utama aplikasi](images/ttd.jpg)
+
 # Install
 
 npm init -y
