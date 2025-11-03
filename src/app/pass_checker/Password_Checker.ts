@@ -16,10 +16,10 @@ export class Password_Checker {
       reasons.push(PasswordErrors.SHORT);
     }
     if (password == password.toLowerCase()) {
-      reasons.push(PasswordErrors.NO_LOWERCASE);
+      reasons.push(PasswordErrors.NO_UPPERCASE);
     }
     if (password == password.toUpperCase()) {
-      reasons.push(PasswordErrors.NO_UPPERCASE);
+      reasons.push(PasswordErrors.NO_LOWERCASE);
     }
     return {
       valid: reasons.length > 0 ? false : true,

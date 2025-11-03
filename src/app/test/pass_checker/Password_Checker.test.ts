@@ -23,17 +23,17 @@ describe("Password checker test", () => {
   it("Password with no upper case is invalid", () => {
     const actual = sut.checkPassword("121dasdfasdfa");
     expect(actual.valid).toBe(false);
-    expect(actual.reasons).toContain(PasswordErrors.NO_LOWERCASE);
+    expect(actual.reasons).toContain(PasswordErrors.NO_UPPERCASE);
   });
-  xit("Password with no lower case is invalid", () => {
+  it("Password with no lower case is invalid", () => {
     const actual = sut.checkPassword("123ASADFAA");
     expect(actual.valid).toBe(false);
-    expect(actual.reasons).toContain(PasswordErrors.NO_UPPERCASE);
+    expect(actual.reasons).toContain(PasswordErrors.NO_LOWERCASE);
   });
-  xit("Password with to lower and upper case is valid", () => {
+  it("Password with  lower and upper case is valid", () => {
     const actual = sut.checkPassword("121312AddfaA");
     expect(actual.valid).toBe(true);
-    expect(actual.reasons).toContain(PasswordErrors.NO_LOWERCASE);
-    expect(actual.reasons).toContain(PasswordErrors.NO_UPPERCASE);
+    expect(actual.reasons).not.toContain(PasswordErrors.NO_LOWERCASE);
+    expect(actual.reasons).not.toContain(PasswordErrors.NO_UPPERCASE);
   });
 });
