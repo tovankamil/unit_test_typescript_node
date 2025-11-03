@@ -1,4 +1,4 @@
-![Tampilan utama aplikasi](images/ttd.jpg)
+![Test Driven Development](images/ttd.jpg)
 
 # Install
 
