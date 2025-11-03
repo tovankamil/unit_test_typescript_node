@@ -1,4 +1,4 @@
-![Test Driven Development](images/ttd.jpg)
+![Test Driven Development](images/tdd.jpg)
 
 # Install
 
