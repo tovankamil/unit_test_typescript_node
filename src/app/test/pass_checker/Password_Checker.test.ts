@@ -23,17 +23,35 @@ describe("Password checker test", () => {
   it("Password with no upper case is invalid", () => {
     const actual = sut.checkPassword("121dasdfasdfa");
     expect(actual.valid).toBe(false);
-    expect(actual.reasons).toContain(PasswordErrors.NO_UPPERCASE);
+    expect(actual.reasons).toContain(PasswordErrors.NO_LOWERCASE);
   });
   it("Password with no lower case is invalid", () => {
     const actual = sut.checkPassword("123ASADFAA");
     expect(actual.valid).toBe(false);
-    expect(actual.reasons).toContain(PasswordErrors.NO_LOWERCASE);
+    expect(actual.reasons).toContain(PasswordErrors.NO_UPPERCASE);
   });
   it("Password with  lower and upper case is valid", () => {
     const actual = sut.checkPassword("121312AddfaA");
     expect(actual.valid).toBe(true);
     expect(actual.reasons).not.toContain(PasswordErrors.NO_LOWERCASE);
     expect(actual.reasons).not.toContain(PasswordErrors.NO_UPPERCASE);
+  });
+
+  it("Complex password is valid", () => {
+    const actual = sut.checkPassword("12334Abcd");
+    expect(actual.reasons).toHaveLength(0);
+    expect(actual.valid).toBe(true);
+  });
+
+  it("Admin password with no number is invalid", () => {
+    const actual = sut.checkAdminPassword("abcDFxxddddxxx");
+    expect(actual.valid).toBe(false);
+    expect(actual.reasons).toContain(PasswordErrors.NO_NUMBER);
+  });
+
+  it("Admin password with  number is valid", () => {
+    const actual = sut.checkAdminPassword("abcDFxx123");
+    expect(actual.valid).toBe(true);
+    expect(actual.reasons).toHaveLength(0);
   });
 });
