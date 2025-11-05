@@ -5,6 +5,8 @@
 npm init -y
 npm i -D typescript jest ts-jest @types/jest ts-node
 npx ts-jest config:init
+npm install uuid
+npm i -D @types/uuid
 
 # remove jest.config.js replace with jest.config.ts
 

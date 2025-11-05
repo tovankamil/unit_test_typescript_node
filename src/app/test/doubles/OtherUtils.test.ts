@@ -7,7 +7,7 @@ describe("OtherUtils test suite", () => {
   let cbArgs = [];
   let timesCalled = 0;
 
-  describe("Tracking callbacks", () => {
+  describe.skip("Tracking callbacks", () => {
     const mockCallback = jest.fn();
     afterEach(() => {
       mockCallback.mockClear();

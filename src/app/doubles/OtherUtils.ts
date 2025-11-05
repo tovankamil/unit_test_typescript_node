@@ -1,3 +1,5 @@
+const v4 = require("uuid").v4;
+
 export type stringInfo = {
   lowerCase: string;
   upperCase: string;
@@ -6,6 +8,12 @@ export type stringInfo = {
   extraInfo: Object | undefined;
 };
 
+export function toUpperCase(arg: string) {
+  return arg.toUpperCase();
+}
+export function toLowerCaseWithId(arg: string) {
+  return arg.toUpperCase() + v4();
+}
 type LoggerServiceCallBack = (arg: string) => void;
 // stub double test
 export function calculateComplexity(stringinfo: stringInfo) {
