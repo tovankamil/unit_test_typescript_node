@@ -4,21 +4,45 @@ import {
 } from "../../doubles/OtherUtils";
 
 describe("OtherUtils test suite", () => {
-  // fakes double test
-  it("ToUpperCase - calls callback for invalid argument", () => {
-    const actual = toUpperCaseWithCb("", () => {});
+  let cbArgs = [];
+  let timesCalled = 0;
 
+  describe("Tracking callbacks", () => {
+    const mockCallback = jest.fn();
+    afterEach(() => {
+      mockCallback.mockClear();
+    });
+    it("ToUpperCase - calls callback for invalid argument", () => {
+      const actual = toUpperCaseWithCb("", mockCallback);
+      expect(actual).toBeUndefined();
+      expect(mockCallback).toHaveBeenCalledTimes(1);
+      expect(mockCallback).toHaveBeenCalledWith("invalid argument");
+    });
+    it("ToUpperCase - calls callback for valid argument", () => {
+      const actual = toUpperCaseWithCb("abc", mockCallback);
+      expect(actual).toBe("ABC");
+      expect(mockCallback).toHaveBeenCalledTimes(1);
+      expect(mockCallback).toHaveBeenCalledWith("called function with abc");
+    });
+  });
+
+  // fakes double test
+  xit("ToUpperCase -  for invalid argument", () => {
+    const mockCallback = jest.fn();
+    const actual = toUpperCaseWithCb("", mockCallback);
+    expect(mockCallback).toHaveBeenCalledWith("invalid argument");
     expect(actual).toBeUndefined();
   });
 
-  it("ToUpperCase - calls callback for valid argument", () => {
-    const actual = toUpperCaseWithCb("abc", () => {});
+  xit("ToUpperCase - calls callback for valid argument", () => {
+    const mockCallback = jest.fn();
+    const actual = toUpperCaseWithCb("abc", mockCallback);
     console.log(actual);
     expect(actual).toBe("ABC");
   });
 
   //   Stub double test
-  it("Calculate complexity", () => {
+  xit("Calculate complexity", () => {
     const someInfo = {
       length: 5,
       extraInfo: {
