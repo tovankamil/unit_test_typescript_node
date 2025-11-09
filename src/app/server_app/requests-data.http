@@ -12,6 +12,9 @@ Content-Type: application/json
 }
 ###
 
+GET http://localhost:8080
+Authorization: {{token}}
+###
 GET http://localhost:8080/reservation/0a581df56ea95a2fad52
 Authorization: {{token}}
 ###

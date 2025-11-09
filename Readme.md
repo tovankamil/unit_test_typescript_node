@@ -21,3 +21,7 @@ AAA principles:
 # Intermedite testing topics
 
 - F.I.R.S.T (faster => faster feddback, independent, repeatable, self-validating, thorough)
+
+# Add Rest client extension vs code to test rest api
+
+# Database testing include all the function run properly example : insert ,update ,delete, getBy, getAll

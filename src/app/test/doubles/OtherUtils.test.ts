@@ -7,7 +7,7 @@ describe("OtherUtils test suite", () => {
   let cbArgs = [];
   let timesCalled = 0;
 
-  describe.skip("Tracking callbacks", () => {
+  describe("Tracking callbacks", () => {
     const mockCallback = jest.fn();
     afterEach(() => {
       mockCallback.mockClear();
@@ -27,14 +27,14 @@ describe("OtherUtils test suite", () => {
   });
 
   // fakes double test
-  xit("ToUpperCase -  for invalid argument", () => {
+  it("ToUpperCase -  for invalid argument", () => {
     const mockCallback = jest.fn();
     const actual = toUpperCaseWithCb("", mockCallback);
     expect(mockCallback).toHaveBeenCalledWith("invalid argument");
     expect(actual).toBeUndefined();
   });
 
-  xit("ToUpperCase - calls callback for valid argument", () => {
+  it("ToUpperCase - calls callback for valid argument", () => {
     const mockCallback = jest.fn();
     const actual = toUpperCaseWithCb("abc", mockCallback);
     console.log(actual);
@@ -42,7 +42,7 @@ describe("OtherUtils test suite", () => {
   });
 
   //   Stub double test
-  xit("Calculate complexity", () => {
+  it("Calculate complexity", () => {
     const someInfo = {
       length: 5,
       extraInfo: {
