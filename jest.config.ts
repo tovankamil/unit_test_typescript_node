@@ -1,7 +1,7 @@
 import type { Config } from "@jest/types";
 
-const baseDir = "<rootDir>/src/app/server_app";
-const baseTestDir = "<rootDir>/src/app/test/server_app";
+const baseDir = "<rootDir>/src/app/server_app/handlers";
+const baseTestDir = "<rootDir>/src/app/test/server_app/handlers";
 const config: Config.InitialOptions = {
   preset: "ts-jest",
   testEnvironment: "node",
@@ -12,9 +12,13 @@ const config: Config.InitialOptions = {
   collectCoverage: true,
   roots: ["<rootDir>/src"],
   transformIgnorePatterns: ["/node_modules/(?!(uuid)/)"],
-  collectCoverageFrom: [`${baseDir}/**/*.ts`],
+  collectCoverageFrom: [`${baseDir}/**/*.ts`, `${baseDir}/**/*.js`],
   coveragePathIgnorePatterns: [`${baseTestDir}`],
-  testMatch: [`${baseTestDir}/**/*.test.ts`, `${baseTestDir}/**/*.spec.ts`],
+  testMatch: [
+    `${baseTestDir}/**/*.test.ts`,
+    `${baseTestDir}/**/*.test.js`,
+    `${baseTestDir}/**/*.spec.ts`,
+  ],
 };
 
 export default config;

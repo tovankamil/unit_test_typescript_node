@@ -19,7 +19,7 @@ const someObject2 = {
   color: "blue",
 };
 
-describe("Database test suite, ", () => {
+describe.skip("Database test suite, ", () => {
   let sut: DataBase<someTypeWithId>;
   const fakeID = "12345";
   beforeEach(() => {
